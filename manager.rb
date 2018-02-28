@@ -43,10 +43,13 @@ class Manager < Employee
 
   def give_all_raises
     p 'totally gonna give everybody a raise rn'
-    i = 0
-    @employees.length.times do
-      @employees[i].give_annual_raise
-      i += 1
+    # i = 0
+    # @employees.length.times do
+    #   @employees[i].give_annual_raise
+    #   i += 1
+    # end
+    @employees.each do |employee|
+      employee.give_annual_raise
     end
   end
 end
