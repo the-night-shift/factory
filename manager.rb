@@ -1,6 +1,3 @@
-require './employees.rb'
-require './email_reportable.rb'
-
 class Manager < Employee
   attr_reader :employees
   include EmailReportable

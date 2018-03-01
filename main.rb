@@ -1,13 +1,17 @@
+require './email_reportable.rb'
+require './employees.rb'
+require './manager.rb'
+require './intern.rb'
+
+employee1 = Employee.new({:first_name => "Majora", :last_name => "Carter", :salary => 80000, :active => true})
+# employee1.print_info
+employee2 = Employee.new(first_name: "Danilo", last_name: "Campos", salary: 70000, active: false)
+
 manager1 = Manager.new({:first_name => "Manny", :last_name => "Williams", :salary => 100000, :active => true, employees: [employee1, employee2]})
 
 # pp manager1
 manager1.send_report
 
-
-
-employee1 = Employee.new({:first_name => "Majora", :last_name => "Carter", :salary => 80000, :active => true})
-# employee1.print_info
-employee2 = Employee.new(first_name: "Danilo", last_name: "Campos", salary: 70000, active: false)
 # employee2.print_info
 
 
@@ -34,6 +38,6 @@ intern1.send_report
 # intern1.give_all_raises
 
 
-pp manager1
+p manager1
 manager1.give_all_raises
-pp manager1
+p manager1
