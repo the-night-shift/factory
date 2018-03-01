@@ -1,5 +1,12 @@
 require 'pp'
 # a manager can do EVERYTHING an employee can do, and also send reports
+module EmailReportable
+  def send_report
+    p 'going to send that report...'
+    # write some real code in here
+    p 'totally just sent that report'
+  end
+end
 
 class Employee
   attr_reader :first_name, :last_name, :salary
@@ -43,16 +50,11 @@ employee2 = Employee.new(first_name: "Danilo", last_name: "Campos", salary: 7000
 
 class Manager < Employee
   attr_reader :employees
+  include EmailReportable
 
   def initialize(input_options)
     super
     @employees = input_options[:employees]
-  end
-
-  def send_report
-    p 'going to send that report...'
-    # write some real code in here
-    p 'totally just sent that report'
   end
 
   def give_all_raises
@@ -76,25 +78,25 @@ end
 
 manager1 = Manager.new({:first_name => "Manny", :last_name => "Williams", :salary => 100000, :active => true, employees: [employee1, employee2]})
 
-
-pp manager1
-manager1.give_all_raises
-pp manager1
-# p manager1.employees
-# Create a method in the Manager class called give_all_raises that loops through each of the manager’s employees and gives them a raise (using the give_annual_raise method).
-
-# make a method called give_all_raises
-# what are the manager's employees?
-# loop through manager's employees
-# give them all a raise (using give_annual_raise)
+# pp manager1
+manager1.send_report
+# pp manager1
 
 
 
-# make a method called fire_all_employees
-# what are the manager's employees?
-# loop through manager's employees
-# give them all a pink slip
+# an intern, does everything an employee does, and also sends reports
 
-# get the right data @employees
-# loop through the data --- the same every time
-# modify the data in some way --- easy or difficult depending on the question
+class Intern < Employee
+  include EmailReportable
+end
+
+intern1 = Intern.new({:first_name => "Ashook", :last_name => "Dilbert", :salary => 0, :active => true})
+
+# should work
+intern1.print_info
+
+# should work
+intern1.send_report
+
+# should break
+# intern1.give_all_raises
