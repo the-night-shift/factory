@@ -1,8 +1,21 @@
+require 'pp'
 # a manager can do EVERYTHING an employee can do, and also send reports
 
 class Employee
   attr_reader :first_name, :last_name, :salary
   attr_writer :first_name, :active
+  # # get an attr that can do both
+  # attr_accessor
+
+  # # reader
+  # def active
+  #   @active
+  # end
+
+  # # writer
+  # def active=(input_active)
+  #   @active = input_active
+  # end
 
   def initialize(input_options)
     @first_name = input_options[:first_name]
@@ -43,7 +56,7 @@ class Manager < Employee
   end
 
   def give_all_raises
-    p 'totally gonna give everybody a raise rn'
+    # p 'totally gonna give everybody a raise rn'
     # i = 0
     # @employees.length.times do
     #   @employees[i].give_annual_raise
@@ -63,9 +76,9 @@ end
 
 manager1 = Manager.new({:first_name => "Manny", :last_name => "Williams", :salary => 100000, :active => true, employees: [employee1, employee2]})
 
-p manager1
-manager1.fire_all_employees
-p manager1
+pp manager1
+manager1.give_all_raises
+pp manager1
 # p manager1.employees
 # Create a method in the Manager class called give_all_raises that loops through each of the manager’s employees and gives them a raise (using the give_annual_raise method).
 
@@ -75,7 +88,12 @@ p manager1
 # give them all a raise (using give_annual_raise)
 
 
-# make a method called fire...
+
+# make a method called fire_all_employees
 # what are the manager's employees?
 # loop through manager's employees
 # give them all a pink slip
+
+# get the right data @employees
+# loop through the data --- the same every time
+# modify the data in some way --- easy or difficult depending on the question
