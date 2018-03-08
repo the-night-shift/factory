@@ -1,13 +1,13 @@
-require './email_reportable.rb'
-require './employees.rb'
-require './manager.rb'
-require './intern.rb'
+require './email_reportable'
+require './employees'
+require './manager'
+require './intern'
 
-employee1 = Employee.new({:first_name => "Majora", :last_name => "Carter", :salary => 80000, :active => true})
+employee1 = Actualize::Employee.new({:first_name => "Majora", :last_name => "Carter", :salary => 80000, :active => true})
 # employee1.print_info
-employee2 = Employee.new(first_name: "Danilo", last_name: "Campos", salary: 70000, active: false)
+employee2 = Actualize::Employee.new(first_name: "Danilo", last_name: "Campos", salary: 70000, active: false)
 
-manager1 = Manager.new({:first_name => "Manny", :last_name => "Williams", :salary => 100000, :active => true, employees: [employee1, employee2]})
+manager1 = Actualize::Manager.new({:first_name => "Manny", :last_name => "Williams", :salary => 100000, :active => true, employees: [employee1, employee2]})
 
 # pp manager1
 manager1.send_report
@@ -26,7 +26,7 @@ manager1.send_report
 
 
 
-intern1 = Intern.new({:first_name => "Ashook", :last_name => "Dilbert", :salary => 0, :active => true})
+intern1 = Actualize::Intern.new({:first_name => "Ashook", :last_name => "Dilbert", :salary => 0, :active => true})
 
 # should work
 intern1.print_info
